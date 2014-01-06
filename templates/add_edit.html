@@ -196,15 +196,14 @@
 
   <%block filter="collect_js">
     $(function(){
-
       $('body')
         .delegate('.add-item', 'click', function(e){
           var $group = $(this).parent();
           var item_name = $(this).data('name');
-          var delete_item = '<span class="remove-item" data-name="' + item_name + '"> X </span>';
+
           var control_item = '<div class="control-item">\
             <input class="input-text" type="text" name="' + item_name + '" />\
-            ' + delete_item +'\
+            <span class="remove-item"> X </span>\
           </div>';
 
           $(control_item).insertBefore($group);

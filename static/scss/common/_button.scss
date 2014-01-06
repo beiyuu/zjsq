@@ -1,0 +1,112 @@
+@import "compass/css3";
+@import "./_mixin.scss";
+
+.btn-epi {
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  width: 60px;
+  padding: 8px 0;
+  margin: 0 0 10px 8px;
+  position: relative;
+  border: 1px solid #dedede;
+  @include inline-block;
+}
+
+.btn-epi-normal {
+  @extend .btn-epi;
+  @include mixed-background(#fdfdfd, #f1f0f0);
+
+  &:link,
+  &:visited {
+    color: #444;
+  }
+
+  &:hover {
+    @include mixed-background(#4d9bfa, #3984f5);
+    text-decoration: none;
+    border: 1px solid #888;
+    color: #fff;
+  }
+
+  &:active {
+    color: #fff;
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.05) inset;
+  }
+}
+
+.btn-epi-none {
+  @extend .btn-epi;
+  @include mixed-background(#efefef, #e5e5e5);
+  color: #aaa;
+
+  &:link,
+  &:visited,
+  &:hover,
+  &:active {
+    color: #aaa;
+  }
+}
+
+.btn-epi-normal i,
+.btn-epi-none i{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #333;
+  width: 15px;
+  height: 15px;
+
+  &:hover {
+    background: #666;
+    cursor: pointer;
+  }
+}
+
+.pure-button {
+  font-size: 14px;
+  padding: 8px 16px;
+  color: #444;
+  border: 1px solid #d4d4d4;
+  text-decoration: none;
+  border-radius: 2px;
+  cursor: pointer;
+  @include mixed-background(#f0f0f0, #dcdcdc);
+
+  &:hover,
+  &:focus {
+    @include mixed-background(tint(#f0f0f0, 40%), tint(#dcdcdc, 40%));
+    outline: 0;
+  }
+  &:active {
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
+  }
+}
+
+.pure-button-disabled {
+  background-image: none;
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  background-color: #efefef;
+  border: 1px solid #ddd;
+  cursor: not-allowed;
+  box-shadow: none;
+
+  &:hover,
+  &:active {
+    background-image: none;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    background-color: #efefef;
+  }
+}
+
+.pure-button-primary,
+a.pure-button-primary {
+  @include mixed-background(#0078E7, #0078E7);
+  color: #fff;
+  border: 1px solid #ccc;
+
+  &:hover,
+  &:active {
+    @include mixed-background(tint(#0078E7, 10%), tint(#0078E7, 10%));
+  }
+}

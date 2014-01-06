@@ -1,0 +1,21 @@
+@import "compass/reset";
+
+a {
+  &:link
+  &:visited
+  &:hover
+  &:active {
+    color: #369;
+  }
+}
+
+h1 {
+  font: normal 34px/1.5 "Microsoft Yahei","Simhei";
+  margin: 20px 0 30px;
+}
+
+.main {
+  margin-top: 15px;
+  width: 1000px;
+  margin: 0 auto;
+}

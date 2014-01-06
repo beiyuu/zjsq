@@ -1,0 +1,34 @@
+.item-info {
+  float: left;
+  width: 300px;
+
+  .item-info-detail {
+    width: 230px;
+
+    p {
+      color: #333;
+      font-size: 13px;
+      line-height: 18px;
+    }
+  }
+}
+
+.item-detail {
+  overflow: hidden;
+
+  .item-section {
+    margin-bottom: 60px;
+  }
+
+  .item-section-title {
+    margin: 0 0 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+    color: #333;
+  }
+
+  .item-section-detail {
+    margin-left: -8px;
+    font-size: 0;
+  }
+}

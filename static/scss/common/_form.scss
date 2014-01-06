@@ -1,0 +1,58 @@
+.input-text {
+  width: 280px;
+  outline: none;
+  padding: 5px;
+  height: 20px;
+  font-size: 14px;
+  vertical-align:middle;
+  border: 1px solid #c9c9c9;
+  &:focus {
+    border: 1px solid #888;
+  }
+}
+
+textarea {
+  font-size: 14px;
+  border: 1px solid #c9c9c9;
+  outline: none;
+  padding: 5px;
+  &:focus {
+    border: 1px solid #888;
+  }
+}
+
+.control-group {
+  clear:both;
+  zoom:1;
+  margin-bottom: 20px;
+  label {
+    line-height: 30px;
+    width: 100px;
+    font-size: 14px;
+    text-align: right;
+    vertical-align: top;
+    padding-right: 10px;
+    zoom: 1;
+    float: left;
+  }
+  .control-item {
+    margin-left: 110px;
+    margin-bottom: 10px;
+  }
+  .control-tip {
+    color: #808080;
+    margin-top: 10px;
+  }
+}
+
+.horizontal-group {
+  label {
+    line-height: 20px;
+  }
+}
+
+.form-error {
+  margin-left: 110px;
+  color: red;
+  margin-bottom: 20px;
+}

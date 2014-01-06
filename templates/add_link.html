@@ -1,0 +1,16 @@
+<%inherit file="base.html"/>
+
+<%def name="main()">
+  <form action="" method="post">
+    <input name="link" type="text" style="padding: 8px; width: 300px; margin: 30px 0; font-size: 16px;"/>
+    <input type="submit" value="添加"  style="padding: 8px; width: 40px; height:30px;"/>
+    %if res:
+      %if res.get('error',''):
+        <h1>${res['error']}</h1>
+      %else:
+        <h1>${res['title']}</h1>
+        <h1>${res['is_tv']} </h1>
+      %endif
+    %endif
+  </form>
+</%def>

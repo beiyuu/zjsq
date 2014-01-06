@@ -1,0 +1,217 @@
+<%inherit file="base.html"/>
+
+<%def name="main()">
+  <h1>添加剧集</h1>
+  <form action="" method="post">
+    %if error:
+      <p class="form-error">${error}</p>
+    %endif
+
+    <div class="control-group">
+      <label>中文名</label>
+      <div class="control-item">
+        <input class="input-text" type="text" name="cn_name" value="${cn_name if cn_name else ''}" />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>唯一URL</label>
+      <div class="control-item">
+        <input class="input-text" type="text" name="url_name" value="${url_name if url_name else ''}" />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>原名</label>
+      <div class="control-item">
+        <input class="input-text" type="text" name="origin_name" value="${origin_name if origin_name else ''}" />
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>又名</label>
+      %if aka_name:
+        %for i, name in enumerate(aka_name):
+          <div class="control-item">
+            <input class="input-text" type="text" name="aka_name" value="${name}" />
+            %if i:
+              <span class="remove-item" data-name="aka_name"> X </span>
+            %endif
+          </div>
+        %endfor
+      %else:
+        <div class="control-item">
+          <input class="input-text" type="text" name="aka_name" />
+        </div>
+      %endif
+      <div class="control-item">
+        <span class="add-item" data-name="aka_name">+ 添加更多</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>导演</label>
+      %if directors:
+        %for i, director in enumerate(directors):
+          <div class="control-item">
+            <input class="input-text" type="text" name="directors" value="${director}" />
+            %if i:
+              <span class="remove-item" data-name="directors"> X </span>
+            %endif
+          </div>
+        %endfor
+      %else:
+        <div class="control-item">
+          <input class="input-text" type="text" name="directors" />
+        </div>
+      %endif
+      <div class="control-item">
+        <span class="add-item" data-name="directors">+ 添加更多</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>主演</label>
+      %if casts:
+        %for i, cast in enumerate(casts):
+          <div class="control-item">
+            <input class="input-text" type="text" name="casts" value="${cast}" />
+            %if i:
+              <span class="remove-item" data-name="casts"> X </span>
+            %endif
+          </div>
+        %endfor
+      %else:
+        <div class="control-item">
+          <input class="input-text" type="text" name="casts" />
+        </div>
+      %endif
+      <div class="control-item">
+        <span class="add-item" data-name="casts">+ 添加更多</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>编剧</label>
+      %if writers:
+        %for i, writer in enumerate(writers):
+          <div class="control-item">
+            <input class="input-text" type="text" name="writers" value="${writer}" />
+            %if i:
+              <span class="remove-item" data-name="writers"> X </span>
+            %endif
+          </div>
+        %endfor
+      %else:
+        <div class="control-item">
+          <input class="input-text" type="text" name="writers" />
+        </div>
+      %endif
+      <div class="control-item">
+        <span class="add-item" data-name="writers">+ 添加更多</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>语言</label>
+      %if languages:
+        %for i, language in enumerate(languages):
+          <div class="control-item">
+            <input class="input-text" type="text" name="languages" value="${language}" />
+            %if i:
+              <span class="remove-item" data-name="languages"> X </span>
+            %endif
+          </div>
+        %endfor
+      %else:
+        <div class="control-item">
+          <input class="input-text" type="text" name="languages" />
+        </div>
+      %endif
+      <div class="control-item">
+        <span class="add-item" data-name="languages">+ 添加更多</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>国家/地区</label>
+      %if countries:
+        %for i, country in enumerate(countries):
+          <div class="control-item">
+            <input class="input-text" type="text" name="countries" value="${country}" />
+            %if i:
+              <span class="remove-item" data-name="countries"> X </span>
+            %endif
+          </div>
+        %endfor
+      %else:
+        <div class="control-item">
+          <input class="input-text" type="text" name="countries" />
+        </div>
+      %endif
+      <div class="control-item">
+        <span class="add-item" data-name="countries">+ 添加更多</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>简介</label>
+      <div class="control-item">
+        <textarea id="" name="summary" cols="60" rows="10">${summary if summary else ''}</textarea>
+      </div>
+    </div>
+
+    <div class="control-group horizontal-group">
+      <label>是否完结</label>
+      <div class="control-item">
+        <select name="is_ended">
+          <option value="0" ${'selected' if not is_ended else ''}>否</option>
+          <option value="1" ${'selected' if is_ended else ''}>是</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>&nbsp;</label>
+      <div class="control-item">
+        <button type="submit" class="pure-button pure-button-primary">添加</button>
+      </div>
+    </div>
+  </form>
+
+  <%block filter="collect_css">
+    .add-item {
+      font-size: 12px;
+      color: #777;
+      cursor: pointer;
+    }
+    .remove-item {
+      font-size: 15px;
+      font-weight: bold;
+      color: #777;
+      cursor: pointer;
+      padding: 5px 8px;
+    }
+  </%block>
+
+  <%block filter="collect_js">
+    $(function(){
+
+      $('body')
+        .delegate('.add-item', 'click', function(e){
+          var $group = $(this).parent();
+          var item_name = $(this).data('name');
+          var delete_item = '<span class="remove-item" data-name="' + item_name + '"> X </span>';
+          var control_item = '<div class="control-item">\
+            <input class="input-text" type="text" name="' + item_name + '" />\
+            ' + delete_item +'\
+          </div>';
+
+          $(control_item).insertBefore($group);
+        })
+        .delegate('.remove-item', 'click', function(e){
+          $(this).parent().remove();
+        })
+    });
+  </%block>
+</%def>

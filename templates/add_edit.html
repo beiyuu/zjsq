@@ -1,7 +1,12 @@
 <%inherit file="base.html"/>
 
 <%def name="main()">
-  <h1>添加剧集</h1>
+  %if not edit_tv:
+    <h1>添加剧集</h1>
+  %else:
+    <h1>${'修改成功' if edit_succ else '修改剧集'}</h1>
+  %endif
+
   <form action="" method="post">
     %if error:
       <p class="form-error">${error}</p>
@@ -17,7 +22,11 @@
     <div class="control-group">
       <label>唯一URL</label>
       <div class="control-item">
-        <input class="input-text" type="text" name="url_name" value="${url_name if url_name else ''}" />
+        %if edit_tv:
+          <input class="input-text input-text-disabled" disabled type="text" value="${url_name}" />
+        %else:
+          <input class="input-text" type="text" name="url_name" value="${url_name if url_name else ''}" />
+        %endif
       </div>
     </div>
 
@@ -206,7 +215,7 @@
             <span class="remove-item"> X </span>\
           </div>';
 
-          $(control_item).insertBefore($group);
+          $(control_item).insertBefore($group).find('input').focus();
         })
         .delegate('.remove-item', 'click', function(e){
           $(this).parent().remove();
